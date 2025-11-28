@@ -7,8 +7,6 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.logging.LogType;
 import org.openqa.selenium.logging.LoggingPreferences;
-import org.openqa.selenium.remote.CapabilityType;
-import org.openqa.selenium.remote.DesiredCapabilities;
 
 public class Chrome_Driver {
 
@@ -29,7 +27,6 @@ public class Chrome_Driver {
 		return options;
 	}
 
-	@SuppressWarnings("deprecation")
 	public static WebDriver getInstance() {
 		if (driver == null) {
 			driver = new ChromeDriver(chromeOption());
