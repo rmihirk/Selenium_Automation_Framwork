@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<suite name="Test Suite">
+<suite name="Automation Test Suite">
 
 	<listeners>
-		<listener class-name="org.uncommons.reportng.HTMLReporter" />
-		<listenecr class-name="org.uncommons.reportng.JUnitXMLReporter" />
-		<listener class-name="listenerPages.testlistener" />
+<!--		<listener class-name="org.uncommons.reportng.HTMLReporter" />-->
+<!--		<listener class-name="org.uncommons.reportng.JUnitXMLReporter" />-->
+<!--		<listener class-name="listenerPages.testlistener" />-->
+		<listener class-name="listenerPages.ExtentReportListener"/>
+
 	</listeners>
 
 	<test name="Regression suite 2">
