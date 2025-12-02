@@ -28,7 +28,6 @@ public class BaseTest extends Chrome_Driver {
 		PropertyConfigurator.configure("config/log4j.properties");
 	}
 
-	@SuppressWarnings("deprecation")
 	@BeforeClass
 	public void beforeSuite() {
 		getStaticData();

@@ -2,6 +2,7 @@ package baseclass;
 
 import java.io.IOException;
 import java.text.SimpleDateFormat;
+import java.time.Duration;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
@@ -42,7 +43,7 @@ public class BasePage extends Chrome_Driver {
 	}
 
 	public void delay() {
-		driver.manage().timeouts().pageLoadTimeout(400, TimeUnit.SECONDS);
+		driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(5000));
 	}
 
 	public void timeInterval() {
@@ -63,7 +64,7 @@ public class BasePage extends Chrome_Driver {
 
 	public void getHighlightElement(final WebElement element) {
 		try {
-			wait = new WebDriverWait(driver, Seconds);
+			wait = new WebDriverWait(driver, Duration.ofSeconds(Seconds));
 			// Wait for search to complete
 			wait.until(new ExpectedCondition<Boolean>() {
 				public Boolean apply(WebDriver webDriver) {
@@ -287,7 +288,7 @@ public class BasePage extends Chrome_Driver {
 	public boolean isClickable(By by) {
 		try {
 			moveToElement(by);
-			WebDriverWait wait = new WebDriverWait(driver, 5);
+			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
 			wait.until(ExpectedConditions.elementToBeClickable(by));
 			return true;
 		} catch (Exception e) {
@@ -465,7 +466,7 @@ public class BasePage extends Chrome_Driver {
 
 	public void waitForParticularElement(final By element, int waitForSeconds) {
 		try {
-			wait = new WebDriverWait(driver, waitForSeconds);
+			wait = new WebDriverWait(driver, Duration.ofSeconds(waitForSeconds));
 			// Wait for search to complete
 			wait.until(new ExpectedCondition<Boolean>() {
 				@Override
@@ -488,7 +489,7 @@ public class BasePage extends Chrome_Driver {
 	public void waitForParticularElementExist(final By element, int waitForSeconds) {
 
 		try {
-			Wait<WebDriver> wait = new WebDriverWait(driver, waitForSeconds);
+			Wait<WebDriver> wait = new WebDriverWait(driver, Duration.ofSeconds(waitForSeconds));
 			// Wait for search to complete
 			wait.until(ExpectedConditions.presenceOfElementLocated((element)));
 
@@ -675,7 +676,7 @@ public class BasePage extends Chrome_Driver {
 
 	public void waitForReady() {
 		try {
-			wait = new WebDriverWait(driver, 500);
+			wait = new WebDriverWait(driver, Duration.ofSeconds(5));
 			wait.until(new Function<WebDriver, Boolean>() {
 				int cnt = 1;
 
@@ -698,7 +699,7 @@ public class BasePage extends Chrome_Driver {
 
 			initializeMapAndSetEvent();
 
-			WebDriverWait wait = new WebDriverWait(driver, 120);
+			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 			wait.until(new Function<WebDriver, Boolean>() {
 				int cnt = 1;
 
@@ -761,7 +762,7 @@ public class BasePage extends Chrome_Driver {
 
 	// Wait for element invisible
 	public void waitForInvisibilityOfElement(By by) {
-		wait = new WebDriverWait(driver, Seconds);
+		wait = new WebDriverWait(driver, Duration.ofSeconds(Seconds));
 		logger.info("Element is invisible ");
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(by));
 	}
